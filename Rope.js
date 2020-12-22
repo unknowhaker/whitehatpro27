@@ -3,9 +3,9 @@ class Rope {
         this.offsetX=offsetX;
         this.offsetY=offsetY;
         var option={
-            bodyA:body1,
-            bodyB:body2,
-            pointB{x:this.offsetX, y:this.offsetY};
+            bodyA:bodyA,
+            bodyB:bodyB,
+            pointB: {x:this.offsetX, y:this.offsetY}
         }
         this.chain=Constraint.create(option);
         World.add(world,this.chain);
@@ -15,7 +15,7 @@ class Rope {
         var possB=this.chain.bodyB.position;
         push();
         strokeWeight(3);
-        line (possA.x,possA.y,possB.x,possB.y);
+        line (possA.x,possA.y,possB.x+offsetX,possB.y+offsetY);
         pop();
     }
 }
